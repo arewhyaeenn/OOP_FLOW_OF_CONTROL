@@ -6,11 +6,6 @@ In this lab:
 * How to use `for`, `while`, and `do while` loops to repeat actions.
 * How to use the `break` and `continue` keywords.
 * How to use a `switch`.
-* What an array is.
-* Strings and arrays.
-* How to index an array.
-* How to traverse an array.
-* Arrays and nestability.
 
 ## Boolean Expressions
 
@@ -22,7 +17,7 @@ The simplest boolean expressions are the `boolean` literal values themselves, `t
 
 ### Relational Operators
 
-Java includes **relational operators** which return `true` or `false` depending on the values of their operands (which must be numerical primitives):
+Java includes **relational operators** which return `true` or `false` depending on the values of their operands:
 
 **OPERATOR** | **SAMPLE EXPRESSION** | **VALUE**
 :----------: | :-------------------: | :-------:
@@ -47,15 +42,21 @@ Java also includes **boolean operators**, which allow calculation of `boolean` v
 
 If you refer to the [Java 8 operator precedence](https://github.com/arewhyaeenn/COMP_150_LAB_2_JAVA_FUNDAMENTALS/blob/master/figures/operatorPrecedence.png) you'll see that, when evalutating logical expressions, first *not* operations (`!`) are performed from right to left, then *and* (`&&`) operations from left to right, and finally *or* (`||`) from left to right. Of course, parenthesis can be used to specify a different order.
 
-[EXERCISE] boolean operations on boolean literals and boolean variables
+Boolean operations occur after arithmetic and comparison operations.
+
+[EXERCISE] boolean operations on `boolean` literals and `boolean` variables
 
 [EXERCISE] boolean operations with relational operators
 
-### TODO Short Circuit Evaluation
+### Short Circuit Evaluation
+
+When boolean operations are evaluated, the values of input expressions are only calculated if necessary; unnecessary evaluations are skipped. For instance, in the expression `a && b`, if `a` is `false` then `b` won't be evaluated because `a && b` is necessarily `false` regardless of `b`'s value. Similarly, when evaluating `a || b` if `a` is `true` then `b`'s value isn't needed to determine that `a || b` is `true`.
+
+[EXERCISE] Follow operator precedence, show step by step evaluation of boolean expressions using arithmetic, comparison and boolean operators.
 
 ## `if`/`else`
 
-`if` and `else` statements can be used in coalition with boolean expressions to select which blocks to run. We'll start our discussion of `if` and `else` with an example:
+`if` and `else` statements can be used together with boolean expressions to select which blocks to run. We'll start our discussion of `if` and `else` with an example:
 
 ```java
 import java.util.Scanner;
@@ -85,6 +86,8 @@ The program above prompts the user for an integer, and stores their response in 
 
 [EXERCISE] Edit the program above to tell the user whether their response equals `10`.
 
+[EXERCISE] If the two printed `String`s above are switched, what happens?
+
 ###<a name="if"></a>`if` Statements
 
 The simplest `if` statements look like: `if ( <boolean_expression> ) { <true_block> }`.
@@ -93,6 +96,16 @@ If the boolean expression in the parenthesis is true, then the statements in the
 
 ```java
 int x = 5;
+if (x == 5)
+{
+	System.out.println("mmhmmm");
+}
+```
+
+If the boolean expression is `false`, then the true block does not run. The program below does not print anything to the console:
+
+```java
+int x = 6;
 if (x == 5)
 {
 	System.out.println("mmhmmm");
@@ -199,11 +212,11 @@ class DoorGuard
 }
 ```
 
-Notice that the boolean expressions above don't use the relational operators; the instead make calls to the `userResponse` `String`'s `equals` method. This is because `String`s are objects, not primitives, so the `==` operator would check if they are the **same object** (i.e. if they reference the same location in memory); we want to check if they contain the same characters, which is defined in the `String` class's `equals` method.
+Notice that the boolean expressions above don't use the relational operators; the instead make calls to the `userResponse` `String`'s `equals` method. This is because `String`s are objects, not primitives, so the `==` operator would check if they are the **same object** (i.e. if they reference the same location in memory); we want to check if they contain the same characters, which is defined in the `String` class's `equals` method. We will discuss this in much more detail in the next lab; for now just know that the `String.equals` method compares two `String`s and returns `true` if they contain the same sequence of characters.
 
 [EXERCISE] What happens if the user enters the current password in the example above? What if they enter the old password? What if they enter something else entirely?
 
-[EXERCISE] Go on an if-else flow adventure with the debugger
+[EXERCISE] Go on an if-else flow adventure with the debugger.
 
 ### `if` Statements, Blocks, and Nestability
 
@@ -267,7 +280,7 @@ class FreeJacket
 }
 ```
 
-[EXERCISE] Read the program above. Theorize about how it should behave. When you believe you know what it will do in any case (i.e. with any sequence of user inputs) run it to test your theory. You may want to run with the debugger, so you can step through line by line and see what's happening!
+[EXERCISE] Read the program above. Theorize about how it should behave. When you believe you know what it will do in any case (i.e. with any sequence of user inputs) run it to test your theory. You shoud use the debugger, so you can step through line by line and see what's happening.
 
 [EXERCISE] Write a program to specification using nested ifs
 
@@ -284,13 +297,13 @@ while ( <boolean_expression> )
 
 As long as the boolean expression, called the **loop condition** remains `true`, the loop will keep repeating the statements in the **loop body**. The loop essentially works as follows:
 
-1. Evaluate the loop condition is `true`
+1. Evaluate the loop condition.
 2. If the loop condition is `true`, execute the instructions in the loop body, then start over on step 1.
 3. Otherwise, resume execution on the line after the loop body.
 
 Each repetition of the instructions in the loop body is called an **iteration**. To **iterate** is to go through an iteration.
 
-The snippet below should iterate 10 times; it should print out the numbers `0` through `9`, and should leave `i` with value `10` after the loop has completed.
+The snippet below should iterate 10 times; it should print out the numbers `0` through `9`.
 
 ```java
 int i = 0;
@@ -300,6 +313,8 @@ while (i < 10)
 	++i;
 }
 ```
+
+[EXERCISE] Determine what value `i` has in the snippet above after the loop ceases interation.
 
 [EXERCISE] Create a simple program the the while loop above in its main method. Run with debugger...
 
@@ -413,7 +428,7 @@ for (<initializing_statement> ; <boolean_expression> ; <end_of_iteration_stateme
 }
 ```	
 
-The function much like `while` loops do, but come with a bit more of the setup encased in the statement syntax. The three statements in the `for` loop's parenthesis are as follows:
+`for` loops function much like `while` loops do, but come with a bit more of the setup encased in the statement syntax. The three statements in the `for` loop's parenthesis are as follows:
 
 * `<initializing_statement>` : executed before the first iteration.
 * `<boolean_expression>` : evaluated before each iteration; if `true`, keep looping; if `false`, stop looping.
@@ -439,7 +454,7 @@ for (int i = 0; i < 10; ++i)
 }
 ```
 
-These two loops are identical in output; they both print the same numbers. There is  difference, however. The `while` loop example declares `i` outside of the scope of the loop, so `i` still exists outside of the loop (it has a value of `10` when the loop completes). The `for` loop, on the other hand, declares `i` inside the scope of the loop, so `i` doesn't exist after the loop finishes iterating.
+These two loops are identical in output; they both print the same numbers. There is a  difference, however. The `while` loop example declares `i` outside of the scope of the loop, so `i` still exists outside of the loop (it has a value of `10` when the loop completes). The `for` loop, on the other hand, declares `i` inside the scope of the loop, so `i` doesn't exist after the loop finishes iterating.
 
 [EXERCISE] print i after the while loop, find out what happens when you try after the for loop
 
@@ -447,7 +462,7 @@ These two loops are identical in output; they both print the same numbers. There
 
 ## `break` and `continue`
 
-A `break` statement can be used to stop a loop's iterating, without finishing the current iteration. Consider this snippet:
+A `break` statement can be used to stop a loop, without finishing the current iteration. Consider this snippet:
 
 ```java
 int i = 0;
@@ -468,7 +483,7 @@ Note that in the loop above, the loop condition is simply `true`. This means tha
 
 [EXERCISE] what is the first number printed by the loop above? what is the last? verify by running...
 
-A `continue` statement will cause the loop to start iteration again from the beginning of the loop body if the loop condition is still `true`.
+A `continue` statement will cause the loop to start iteration again from the beginning of the loop body if the loop condition is still `true`. In other words, the `continue` statement ends the current iteration, but allows the loop to continue onto the next iteration.
 
 ```java
 int i = 0;
@@ -557,12 +572,12 @@ You've likely noticed that anything that can be done with a `switch` can also be
 
 Generally, the decision to use a `switch` or an `if`/`else` chain comes down to readability in context and the preference of the programmer.
 
-## Arrays
+## Answers to Selected Exercises
 
-### Indexing
+# TODO
 
-### Strings and Arrays
+## Lab Assignment
 
-### Traversing
+# TODO
 
-### Nestability
+
