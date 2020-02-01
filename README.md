@@ -28,7 +28,30 @@ Java includes **relational operators** which return `true` or `false` depending 
 `>=`         | `x >= y`              | `true` if `x` is greater than or equal to `y`; `false` otherwise
 `>`          | `x > y`               | `true` if `x` is greater than `y`; `false` otherwise
 
-[EXERCISE] comparisons
+Since relational operators evaluate to boolean values, the can be used to form boolean expressions.
+
+<a name="q1"></a>**[EXERCISE 1](#a1)** Variables `a`, `b`, `c` and `d` are defined as follows:
+
+```java
+int a = 1;
+byte b = -7;
+float c = 8.0f;
+double d = 1.0;
+```
+
+Evaluate each of the following boolean expressions
+
+1. `a < b`
+2. `a < d`
+3. `a <= d`
+4. `a == d`
+5. `b == d`
+6. `d < c`
+7. `a != a`
+8. `a == a`
+9. `Math.abs(b) > Math.abs(d)`
+10. `d >= a`
+11. `-a * b == 7.0f`
 
 ### Boolean Operators
 
@@ -42,17 +65,57 @@ Java also includes **boolean operators**, which allow calculation of `boolean` v
 
 If you refer to the [Java 8 operator precedence](https://github.com/arewhyaeenn/COMP_150_LAB_2_JAVA_FUNDAMENTALS/blob/master/figures/operatorPrecedence.png) you'll see that, when evalutating logical expressions, first *not* operations (`!`) are performed from right to left, then *and* (`&&`) operations from left to right, and finally *or* (`||`) from left to right. Of course, parenthesis can be used to specify a different order.
 
+Check out [DeMorgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws) for rules to help simplify boolean expressions. Note that the laws are laws of mathematics, not of Java, so the symbols used for the *and*, *or* and *not* (or *negation*) operators are different (but defined near the top of the article.
+
 Boolean operations occur after arithmetic and comparison operations.
 
-[EXERCISE] boolean operations on `boolean` literals and `boolean` variables
+<a name="q2"></a>**[EXERCISE 2](#a2)** The variables `x`, `y` and `z` are defined by:
 
-[EXERCISE] boolean operations with relational operators
+```java
+boolean x = true;
+boolean y = false;
+boolean z = false;
+```
+
+Evaluate each of the following boolean expressions:
+
+1. `true || false`
+2. `y || x`
+3. `false || y`
+4. `true && true`
+5. `x && y`
+6. `y || z`
+7. `x || y && z`
+8. `x || (y && z)`
+9. `(x || y) && z`
+10. `!x`
+11. `!y`
+12. `!x || x`
+13. `!(x || x)`
+14. `!y || !x && z`
+15. `!y || (!x && z)`
+
+<a name="q3"></a>**[EXERCISE 3](#a3)** The variables `a`, `b` and `c` are defined as follows:
+
+```java
+int x = 5;
+int y = 0;
+int z = 5;
+```
+
+Write boolean expressions which are equivalent to each of the following. Then, evaluate them.
+
+1. `x` is at most `5` and at least `0`.
+2. `x` and `y` are both at least `0`.
+3. The sum of `y` and `7` is greater than `x`.
+4. At least one of the following is true:
+	* `x` plus `5` equals `11`.
+	* The average of `x` and `y` is at least `3`.
+	* `z` is positive.
 
 ### Short Circuit Evaluation
 
 When boolean operations are evaluated, the values of input expressions are only calculated if necessary; unnecessary evaluations are skipped. For instance, in the expression `a && b`, if `a` is `false` then `b` won't be evaluated because `a && b` is necessarily `false` regardless of `b`'s value. Similarly, when evaluating `a || b` if `a` is `true` then `b`'s value isn't needed to determine that `a || b` is `true`.
-
-[EXERCISE] Follow operator precedence, show step by step evaluation of boolean expressions using arithmetic, comparison and boolean operators.
 
 ## `if`/`else`
 
@@ -84,9 +147,9 @@ class MyClass
 
 The program above prompts the user for an integer, and stores their response in a variable called `userInput`. It then prints out a message, telling the user whether their input was greater than `10` or not.
 
-[EXERCISE] Edit the program above to tell the user whether their response equals `10`.
+<a name="q4"></a>**EXERCISE 4** Edit the program above to tell the user whether their response equals `10`.
 
-[EXERCISE] If the two printed `String`s above are switched, what happens?
+<a name="q5"></a>**[EXERCISE 5](#a5)** If the two printed `String`s in the conditional blocks above are switched, what happens? Does the value of the printed `String`s affect the flow of control? Does the accuracy of printed `String`s affect program execution? Does the compiler ensure that the printed messages align with the conditions under which they are printed (i.e. that they make sense or are accurate)?
 
 ###<a name="if"></a>`if` Statements
 
@@ -145,9 +208,7 @@ Here if the value assigned to `x` is `5`, then the message "mmhmmm" is printed; 
 
 In an `if` statement, the block(s) which may or may not be executed depending on the value(s) of boolean expression(s) are called **conditional blocks**. This is because they are blocks whose contained instructions are only executed if specific conditions (specifically, those defined in the boolean expression) are met.
 
-[EXERCISE] simple boolean, complex body
-
-[EXERCISE] complex boolean, simple body
+<a name="q6"></a>**EXERCISE 6** Write a program which asks the user if they would like a free milkshake. If the user responds with `yes`, print out an appropriate message (e.g. "Ok, here's your milkshake!"). Otherwise, assume they said `no` in some way or another and print out an appropriate message.
 
 ### Statement Nestability
 
@@ -214,9 +275,9 @@ class DoorGuard
 
 Notice that the boolean expressions above don't use the relational operators; the instead make calls to the `userResponse` `String`'s `equals` method. This is because `String`s are objects, not primitives, so the `==` operator would check if they are the **same object** (i.e. if they reference the same location in memory); we want to check if they contain the same characters, which is defined in the `String` class's `equals` method. We will discuss this in much more detail in the next lab; for now just know that the `String.equals` method compares two `String`s and returns `true` if they contain the same sequence of characters.
 
-[EXERCISE] What happens if the user enters the current password in the example above? What if they enter the old password? What if they enter something else entirely?
+<a name="q7"></a>**[EXERCISE 7](#a7)** What happens if the user enters the current password in the example above? What if they enter the old password? What if they enter something else entirely?
 
-[EXERCISE] Go on an if-else flow adventure with the debugger.
+<a name="q8"></a>**EXERCISE 8** Use the debugger to trace the program above (i.e. go through it line by line) with different inputs. When you're sure you understand why the lines being executed are being executed, you're ready to move on.
 
 ### `if` Statements, Blocks, and Nestability
 
@@ -280,9 +341,9 @@ class FreeJacket
 }
 ```
 
-[EXERCISE] Read the program above. Theorize about how it should behave. When you believe you know what it will do in any case (i.e. with any sequence of user inputs) run it to test your theory. You shoud use the debugger, so you can step through line by line and see what's happening.
+<a name="q9"></a>**EXERCISE 9** Read the program above. Theorize about how it should behave. When you believe you know what it will do in any case (i.e. with any sequence of user inputs) step through it with the debugger to test your understanding.
 
-[EXERCISE] Write a program to specification using nested ifs
+<a name="q10"></a>**EXERCISE 10** Write a program which prompts the user for two integer values `x` and `y`, denoting coordinates on the 2D Cartesian plane. Use nested `if` statements to tell them which quadrant their coordinates are in or which axis they are on.
 
 ## `while` Loops
 
@@ -314,13 +375,49 @@ while (i < 10)
 }
 ```
 
-[EXERCISE] Determine what value `i` has in the snippet above after the loop ceases interation.
+<a name="q11"></a>**EXERCISE 11** Create a simple program with the the while loop above in its main method in order to step through it with the debugger and observe the behavior of the `while` loop.
 
-[EXERCISE] Create a simple program the the while loop above in its main method. Run with debugger...
+<a name="q12"></a>**[EXERCISE 12](#a12)** Determine what value `i` has in the snippet above after the loop ceases interation.
 
-[EXERCISE] Read a while loop example and answer questions about it.
+<a name="q13"></a>**EXERCISE 13** Consider `while` loop in the snippet below:
 
-[EXERCISE] Write a program involving a while loop to meet specifications.
+```java
+int i = 0;
+while (i < 100)
+{
+	if (i % 2 == 0)
+	{
+		System.out.println(i + " is odd!");
+	}
+	++i;
+}
+```
+
+What should the snippet above print? Are the printed messages accurate? What value should `i` have after the loop terminates? Test your answers to this question by creating a minimal program to run the snippet above.
+
+<a name="q14"></a>**[EXERCISE 14](#a14)** Like `if` statements, `while` loops (and other loop types) can be nested, because they can appear in any block. Write a program that uses a nested `while` loop to print a pattern like the one below, with a number of lines specified by the user:
+
+```
+*
+* *
+* * *
+* * * *
+* * * * *
+```
+
+A sample run might look like:
+
+```
+Enter a positive integer > 7
+
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * * * *
+* * * * * * *
+```
 
 ## `do while` Loops
 
@@ -386,7 +483,7 @@ class UserWrangler
 
 At the moment, the class above contains a single method, called `getYesNoResponse`. It takes as an argument a `String`, storing the prompt (i.e. what to print to request information from the user). It returns a `boolean` value; `true` if the user enters "yes" and `false` if the user enters "no". It allows a programmer to ask the user a yes or no question, and be given the result as a `boolean` with a single method call.
 
-[EXERCISE] Use the client below to step through `UserWrangler.getYesNoResponse` with the Debugger.
+<a name="q15"></a>**EXERCISE 15** Use the client below to step through `UserWrangler.getYesNoResponse` with the Debugger.
 
 ```java
 class Client
@@ -411,9 +508,9 @@ class Client
 }
 ```
 
-[EXERCISE] or maybe just a paragraph, something to point out the infinite loop in the client above
+<a name="q16"></a>**EXERCISE 16** How many times does the loop in the program above iterate (assuming the user keeps providing inputs)?
 
-[EXERCISE] rewrite the FreeJacket client above to use StringWrangler.getYesNoResponse
+<a name="q17"></a>**EXERCISE 17** Rewrite the `FreeJacket` client above to use `StringWrangler.getYesNoResponse`. Comment on the length and readability of your new progam vs that of the original.
 
 ## `for` Loops
 
@@ -456,9 +553,9 @@ for (int i = 0; i < 10; ++i)
 
 These two loops are identical in output; they both print the same numbers. There is a  difference, however. The `while` loop example declares `i` outside of the scope of the loop, so `i` still exists outside of the loop (it has a value of `10` when the loop completes). The `for` loop, on the other hand, declares `i` inside the scope of the loop, so `i` doesn't exist after the loop finishes iterating.
 
-[EXERCISE] print i after the while loop, find out what happens when you try after the for loop
+<a name="q18"></a>**EXERCISE 18** Try to print `i` after the while loop above. What happens? Do the same for the `for` loop above. What happens then?
 
-[EXERCISE] modify the for loop above so it behaves exactly like the while loop (i is still accessible afterwards).
+<a name="q19"></a>**[EXERCISE 19](#a19)** Modify the `for` loop above so it behaves exactly like the `while` loop  above it (so `i` is still accessible afterwards).
 
 ## `break` and `continue`
 
@@ -481,7 +578,7 @@ Note that in the loop above, the loop condition is simply `true`. This means tha
 
 `i` starts at `0`, and is incrememented by `1` at the end of each iteration with `++i;`; eventually, it will be `10`, at which time the `if` condition `i == 10` will be `true`, and the `break;` statement will execute. When this happens, the `while` loop ceases looping without finishing the current iteration.
 
-[EXERCISE] what is the first number printed by the loop above? what is the last? verify by running...
+<a name="q20"></a>**EXERCISE 20** What is the first number printed by the loop above? What is the last? Verify by running.
 
 A `continue` statement will cause the loop to start iteration again from the beginning of the loop body if the loop condition is still `true`. In other words, the `continue` statement ends the current iteration, but allows the loop to continue onto the next iteration.
 
@@ -500,7 +597,7 @@ while (i < 10)
 
 The loop above starts `i` at `0` and increments `i` by `1` at the beginning of each iteration, so eventually the loop condition `i < 10` will be `false`. In each iteration, if `i` is even (i.e. if the remainder when `i` divided by `2` is `0`) after being incremented then the loop body starts over; otherwise, the loop body continues to print `i` before starting over.
 
-[EXERCISE] What values are printed by the loop above? verify by running with the debugger!
+<a name="q21"></a>**EXERCISE 21** What values are printed by the loop above? Verify by running.
 
 ## `switch`
 
@@ -548,17 +645,16 @@ class DateUtils
 }
 ```
 
+<a name="q22"></a>**EXERCISE 22** What does it output of the `dayToInt` method above if the `dayName` argument is not the name of a day of the week? Verify by running.
 
-[EXERCISE] what does it output if the input is not the name of a day?
+<a name="q23"></a>**EXERCISE 23** Create a client class to test the `dayToInt` method. You should ensure that it outputs the correct value for every day of the week, and for a variety of invalid inputs.
 
-[EXERCISE] create a client class to test the `dayToInt` method. you should ensure that it outputs the correct value for every day of the week, and for a variety of invalid inputs.
-
-[EXERCISE] :
+<a name="q24"></a>**EXERCISE 24** :
 
 * Add a `static` method to the `UserWrangler` class called `getMonthName` which
 	* requires no arguments
 	* prompts the user for the name of a month until the user enters a valid month name (use a loop)
-	* returns the valid month name entered by the user
+	* returns the valid month name entered by the user (as a `String`)
 * Add to the `DateUtils` class. In it, create a `static` method called `monthToInt` which:
 	* requires a String argument (the name of a month)
 		* returns an `int` (1 for January, 2 for February, etc, 0 for invalid)
@@ -574,7 +670,157 @@ Generally, the decision to use a `switch` or an `if`/`else` chain comes down to 
 
 ## Answers to Selected Exercises
 
-# TODO
+### <a name="a1"></a>[EXERCISE 1](#q1)
+
+Given the following definitions:
+
+```java
+int a = 1;
+byte b = -7;
+float c = 8.0f;
+double d = 1.0;
+```
+
+These expressions evaluate as follows:
+
+    | **EXPRESSION**              | **VALUE**
+:-- | :-------------------------- | :--------
+1.  | `a < b`                     | `false`
+2.  | `a < d`                     | `false`
+3.  | `a <= d`                    | `true`
+4.  | `a == d`                    | `true`
+5.  | `b == d`                    | `false`
+6.  | `d < c`                     | `true`
+7.  | `a != a`                    | `false`
+8.  | `a == a`                    | `true`
+9.  | `Math.abs(b) > Math.abs(d)` | `true`
+10. | `d >= a`                    | `true`
+11. | `-a * b == 7.0f`            | `true`
+
+### <a name="a2"></a>[EXERCISE 2](#q2)
+
+Given the following definitions:
+
+```java
+boolean x = true;
+boolean y = false;
+boolean z = false;
+```
+
+The expressions are evaluated as follows:
+
+    | **EXPRESSION**    | **VALUE**
+:-- | :---------------- | :--------
+1.  | `true || false`   | `true`   
+2.  | `y || x`          | `true`
+3.  | `false || y`      | `false`
+4.  | `true && true`    | `true`
+5.  | `x && y`          | `false`
+6.  | `y || z`          | `false`
+7.  | `x || y && z`     | `true`
+8.  | `x || (y && z)`   | `true`
+9.  | `(x || y) && z`   | `false`
+10. | `!x`              | `false`
+11. | `!y`			    | `true`
+12. | `!x || x`         | `true`
+13. | `!(x || x)`       | `false`
+14. | `!y || !x && z`   | `true`
+15. | `(!y || !x) && z` | `false`
+
+### <a name="a3"></a>[EXERCISE 3](#q3)
+
+Given the following definitions:
+
+```java
+int x = 5;
+int y = 0;
+int z = 5;
+```
+
+We are to write boolean expressions which are equivalent to each of the following, and then, evaluate them.
+
+1. `x` is at most `5` and at least `0`.
+2. `x` and `y` are both at least `0`.
+3. The sum of `y` and `7` is greater than `x`.
+4. At least one of the following is true:
+	* `x` plus `5` equals `11`.
+	* The average of `x` and `y` is at least `3`.
+	* `z` is positive.
+
+
+|     | **EXPRESSION**                               | **VALUE** |
+| :-- | :------------------------------------------- | :-------- |
+| 1.  | `x <= 5 && x >= 0`                           | `true`    |
+| 2.  | `x >= 0 && y >= 0`                           | `true`    |
+| 3.  | `y + 7 > x`                                  | `true`    |
+| 4.  | `x + 5 == 11 || (x + y) / 2.0 >= 3 || z > 0` | `true`    |
+
+### <a name="a5"></a>**[EXERCISE 5](#q5)** 
+
+If the two printed `String` values are switched (so the printed messages simply lie to the user) the program otherwise functions the same. These values will be printed, even if they are completely inaccurate or nonsensical. The program does whatever we instruct it to, even when the instructions are stupid.
+
+### <a name="a7"></a>**[EXERCISE 7](#q7)**
+
+If the user enters the current password, then the message "Welcome back!" is printed. If they enter the old password, the message "That's the old password..." is printed. If their response is neiter the current password nor the old one, the message "Get lost!" is printed.
+
+### <a name="a12"></a>**[EXERCISE 12](#q12)**
+
+After this loop terminates:
+
+```java
+int i = 0;
+while (i < 10)
+{
+	System.out.println(i);
+	++i;
+}
+```
+
+The value of `i` is `10`.
+
+### <a name="q14"></a>**[EXERCISE 14](#a14)**
+
+The following program will perform as specified:
+
+```java
+import java.util.Scanner;
+
+public class Asterisks
+{
+    public static void main(String[] args)
+    {
+        Scanner keyboard = new Scanner( System.in );
+
+        System.out.print("Enter a positive integer > ");
+        int numberOfLines = keyboard.nextInt();
+
+        int lineNumber = 1;
+        while (lineNumber <= numberOfLines)
+        {
+            System.out.print("\n");
+            int asteriskCount = 0;
+            while (asteriskCount < lineNumber)
+            {
+                System.out.print("* ");
+                asteriskCount++;
+            }
+            ++lineNumber;
+        }
+    }
+}
+```
+
+### <a name="a19"></a>**[EXERCISE 19](#q19)**
+
+If we declare `i` outside of the `for` loop, then it exists outside of the scope of the `for` loop.
+
+```java
+int i = 0;
+for (i = 0; i < 10; ++i)
+{
+	System.out.println(i);
+}
+```
 
 ## Lab Assignment
 
