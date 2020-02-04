@@ -1,5 +1,5 @@
 # COMP 150 Lab 4 - Flow of Control
-In this lab:
+In this lab you will learn:
 
 * What boolean expressions are, and how to write and evaluate them.
 * How to use `if`/`else` statements to decide what actions to take.
@@ -243,6 +243,7 @@ In other words, in a chain of `if`/`else if` statements, only one `true` block w
 
 Consider this example:
 
+<a name="doorguard"></a>
 ```java
 import java.util.Scanner;
 
@@ -553,7 +554,7 @@ for (int i = 0; i < 10; ++i)
 
 These two loops are identical in output; they both print the same numbers. There is a  difference, however. The `while` loop example declares `i` outside of the scope of the loop, so `i` still exists outside of the loop (it has a value of `10` when the loop completes). The `for` loop, on the other hand, declares `i` inside the scope of the loop, so `i` doesn't exist after the loop finishes iterating.
 
-<a name="q18"></a>**EXERCISE 18** Try to print `i` after the while loop above. What happens? Do the same for the `for` loop above. What happens then?
+<a name="q18"></a>**EXERCISE 18** Try to print `i` after the `while` loop above. What happens? Do the same for the `for` loop above. What happens then?
 
 <a name="q19"></a>**[EXERCISE 19](#a19)** Modify the `for` loop above so it behaves exactly like the `while` loop  above it (so `i` is still accessible afterwards).
 
@@ -822,8 +823,55 @@ for (i = 0; i < 10; ++i)
 }
 ```
 
-## Lab Assignment
+# Lab Assignment
 
-# TODO
+## Task 1
+
+Rewrite the [`DoorGuard`](#doorguard) class to run in a loop. It should prompt the user for the password in a loop, telling them when their entries are incorrect, until the user enters the correct password, at which point it should print a message welcoming the user and then terminate.
+
+## Task 2
+
+Write a program which prompts the user for a positive integer, and then prints a diamond pattern in which the number of asterisks on the middle line is equal to their entered integer. The example below is what should be printed if the user enters `3`.
+
+```
+  *
+ * *
+* * *
+ * *
+  * 
+```
+
+## Task 3
+
+Add a method to the `UserWrangler` class called `getIntFromUser`. It should, in a loop:
+
+* Prompt the use for an integer.
+* Use a `Scanner`'s `next` method to get `String` values from the user.
+* Go through the user's input character-by-character to ensure it is an integer literal.
+	* Check out the following:
+		* the `String` class's `length` field
+		* the `String` class's `charAt` method
+		* the `Character` class's `isDigit` method
+* If the user's response is an integer literal, return the corresponding integer value. Otherwise, start the loop over.
+	* Check out the `Integer` class's `parseInt` method.
+
+Create a client to test your new `getIntFromUser` method.
+
+What advantages does your new `getIntFromUser` method have over the `Scanner`'s `nextInt` method?
+
+Optionally, make your implementation able to handle (but not require) a leading `+` or `-` sign on the user input.
+
+If you really want to go hard here, do some research on use of regular expressions in Java. If you have trouble, don't worry, we'll cover them in the next lab.
+
+## Task 4 (Bonus)
+
+Write a program which prompts the user for an integer, and then prints out the prime factorization of their response.
+
+## Task 5 (Bonus)
+
+#TODO
+
+
+
 
 
