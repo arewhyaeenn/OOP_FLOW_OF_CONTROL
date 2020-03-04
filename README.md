@@ -781,7 +781,7 @@ while (i < 10)
 
 The value of `i` is `10`.
 
-### <a name="q14"></a>**[EXERCISE 14](#a14)**
+### <a name="a14"></a>**[EXERCISE 14](#q14)**
 
 The following program will perform as specified:
 
