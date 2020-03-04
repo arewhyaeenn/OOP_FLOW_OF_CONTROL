@@ -60,8 +60,7 @@ Java also includes **boolean operators**, which allow calculation of `boolean` v
 | **OPERATOR** | **MEANING** | **SAMPLE EXPRESSION** | **VALUE**
 | :----------: | :---------: | :-------------------: | :-------:
 | `&&`         | *and*       | `a && b`              | `true` if `a` and `b` are both `true`; `false` otherwise
-|              |             |                       |
-| \|\|         | *or*        | a \|\| b              | `false` if `a` and `b` are both `false`; `true` otherwise
+| `\|\|`       | *or*        | `a \|\| b `           | `false` if `a` and `b` are both `false`; `true` otherwise
 | `!`          | *not*       | `!a`                  | `true` if `a` is `false`; `false` if `a` is `true`
 
 If you refer to the [Java 8 operator precedence](https://github.com/arewhyaeenn/COMP_150_LAB_2_JAVA_FUNDAMENTALS/blob/master/figures/operatorPrecedence.png) you'll see that, when evalutating logical expressions, first *not* operations (`!`) are performed from right to left, then *and* (`&&`) operations from left to right, and finally *or* (`||`) from left to right. Of course, parenthesis can be used to specify a different order.
