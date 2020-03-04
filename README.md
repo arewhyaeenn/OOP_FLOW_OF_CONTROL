@@ -867,10 +867,6 @@ If you really want to go hard here, do some research on use of regular expressio
 
 Write a program which prompts the user for an integer, and then prints out the prime factorization of their response.
 
-## Task 5 (Bonus)
-
-#TODO
-
 
 
 
