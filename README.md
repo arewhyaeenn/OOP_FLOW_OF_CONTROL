@@ -749,12 +749,12 @@ We are to write boolean expressions which are equivalent to each of the followin
 	* `z` is positive.
 
 
-|     | **EXPRESSION**                               | **VALUE** |
-| :-- | :------------------------------------------- | :-------- |
-| 1.  | `x <= 5 && x >= 0`                           | `true`    |
-| 2.  | `x >= 0 && y >= 0`                           | `true`    |
-| 3.  | `y + 7 > x`                                  | `true`    |
-| 4.  | `x + 5 == 11 || (x + y) / 2.0 >= 3 || z > 0` | `true`    |
+|     | **EXPRESSION**                                   | **VALUE** |
+| :-- | :----------------------------------------------- | :-------- |
+| 1.  | `x <= 5 && x >= 0`                               | `true`    |
+| 2.  | `x >= 0 && y >= 0`                               | `true`    |
+| 3.  | `y + 7 > x`                                      | `true`    |
+| 4.  | `x + 5 == 11 \|\| (x + y) / 2.0 >= 3 \|\| z > 0` | `true`    |
 
 ### <a name="a5"></a>**[EXERCISE 5](#q5)** 
 
