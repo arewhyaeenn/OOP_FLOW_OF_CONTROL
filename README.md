@@ -712,21 +712,21 @@ The expressions are evaluated as follows:
 
 |      | **EXPRESSION**    | **VALUE**
 | :--- | :---------------- | :--------
-| 1.   | `true || false`   | `true`   
-| 2.   | `y || x`          | `true`
-| 3.   | `false || y`      | `false`
-| 4.   | `true && true`    | `true`
-| 5.   | `x && y`          | `false`
-| 6.   | `y || z`          | `false`
-| 7.   | `x || y && z`     | `true`
-| 8.   | `x || (y && z)`   | `true`
-| 9.   | `(x || y) && z`   | `false`
-| 10.  | `!x`              | `false`
-| 11.  | `!y`.             | `true`
-| 12.  | `!x || x`         | `true`
-| 13.  | `!(x || x)`       | `false`
-| 14.  | `!y || !x && z`   | `true`
-| 15.  | `(!y || !x) && z` | `false`
+| 1.   | `true \|\| false`   | `true`   
+| 2.   | `y \|\| x`          | `true`
+| 3.   | `false \|\| y`      | `false`
+| 4.   | `true && true`      | `true`
+| 5.   | `x && y`            | `false`
+| 6.   | `y \|\| z`          | `false`
+| 7.   | `x \|\| y && z`     | `true`
+| 8.   | `x \|\| (y && z)`   | `true`
+| 9.   | `(x \|\| y) && z`   | `false`
+| 10.  | `!x`                | `false`
+| 11.  | `!y`                | `true`
+| 12.  | `!x \|\| x`         | `true`
+| 13.  | `!(x \|\| x)`       | `false`
+| 14.  | `!y \|\| !x && z`   | `true`
+| 15.  | `(!y \|\| !x) && z` | `false`
 
 ### <a name="a3"></a>[EXERCISE 3](#q3)
 
