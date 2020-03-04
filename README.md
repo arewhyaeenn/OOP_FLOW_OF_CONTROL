@@ -28,7 +28,7 @@ Java includes **relational operators** which return `true` or `false` depending 
 `>=`         | `x >= y`              | `true` if `x` is greater than or equal to `y`; `false` otherwise
 `>`          | `x > y`               | `true` if `x` is greater than `y`; `false` otherwise
 
-Since relational operators evaluate to boolean values, the can be used to form boolean expressions.
+Since relational operators evaluate to boolean values, they can be used to form boolean expressions.
 
 <a name="q1"></a>**[EXERCISE 1](#a1)** Variables `a`, `b`, `c` and `d` are defined as follows:
 
