@@ -452,6 +452,8 @@ Sometimes, a loop body must iterate at least once, and it is easier (more concis
 
 Consider for example the `UserWrangler` class:
 
+<a name="UserWrangler"></a>
+
 ```java
 /*
     The UserWrangler class will define methods to facilitate console interactions
@@ -484,7 +486,7 @@ class UserWrangler
 
 At the moment, the class above contains a single method, called `getYesNoResponse`. It takes as an argument a `String`, storing the prompt (i.e. what to print to request information from the user). It returns a `boolean` value; `true` if the user enters "yes" and `false` if the user enters "no". It allows a programmer to ask the user a yes or no question, and be given the result as a `boolean` with a single method call.
 
-<a name="q15"></a>**EXERCISE 15** Use the client below to step through `UserWrangler.getYesNoResponse` with the Debugger.
+<a name="q15"></a>**EXERCISE 15** Use the client below to step through `UserWrangler.getYesNoResponse` with the Debugger. Your project will need to include both the client below and the [`UserWrangler`](#UserWrangler) class defined above.
 
 ```java
 class Client
@@ -652,7 +654,7 @@ class DateUtils
 
 <a name="q24"></a>**EXERCISE 24** :
 
-* Add a `static` method to the `UserWrangler` class called `getMonthName` which
+* Add a `static` method to the [`UserWrangler`](#UserWrangler) class called `getMonthName` which
 	* requires no arguments
 	* prompts the user for the name of a month until the user enters a valid month name (use a loop)
 	* returns the valid month name entered by the user (as a `String`)
@@ -843,7 +845,7 @@ Write a program which prompts the user for a positive integer, and then prints a
 
 ## Task 3
 
-Add a method to the `UserWrangler` class called `getIntFromUser`. It should, in a loop:
+Add a method to the [`UserWrangler`](#UserWrangler) class called `getIntFromUser`. It should, in a loop:
 
 * Prompt the use for an integer.
 * Use a `Scanner`'s `next` method to get `String` values from the user.
