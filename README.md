@@ -65,7 +65,7 @@ Java also includes **boolean operators**, which allow calculation of `boolean` v
 
 If you refer to the [Java 8 operator precedence](https://github.com/arewhyaeenn/COMP_150_LAB_2_JAVA_FUNDAMENTALS/blob/master/figures/operatorPrecedence.png) you'll see that, when evalutating logical expressions, first *not* operations (`!`) are performed from right to left, then *and* (`&&`) operations from left to right, and finally *or* (`||`) from left to right. Of course, parenthesis can be used to specify a different order.
 
-Check out [DeMorgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws) for rules to help simplify boolean expressions. Note that the laws are laws of mathematics, not of Java, so the symbols used for the *and*, *or* and *not* (or *negation*) operators are different (but defined near the top of the article.
+Check out [DeMorgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws) for rules to help simplify boolean expressions. Note that the laws are laws of mathematics, not of Java, so the symbols used for the *and*, *or* and *not* (or *negation*) operators are different, but defined near the top of the article.
 
 Boolean operations occur after arithmetic and comparison operations.
 
