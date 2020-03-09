@@ -869,7 +869,27 @@ If you really want to go hard here, do some research on use of regular expressio
 
 Write a program which prompts the user for an integer, and then prints out the prime factorization of their response.
 
+## Task 5 (Bonus)
 
+Repeat task 3, but for doubles instead of ints.
+
+## Task 6 (Bonus)
+
+Create a class called `StringUtils`. In it, create a `boolean` method called `isPalindrome` which takes a `String` in as an argument and outputs `true` if the input is a palindrome, and `false` otherwise.
+
+(A `String` is a palindrome if it is character-wise "symmetrical"; the first letter is the same as the last letter, the second is the same as the second-to-last, and so on)
+
+Add to the `StringUtils` methods two more `boolean` methods called `isCapsLocked` and `isLowerCase`; they should each take a `String` as an argument, and should return `true` if every letter in the `String` is capital or lower case, respectively, and `false` otherwise. Non-alphabetic characters should be treated as neither capital nor lowercase.
+
+Finall, write a client class to test these methods. Your client class should prompt the user for inputs in an infinite loop. For each input, the program should check if the input is the value `"END"`, which should be used as a **sentinel** (i.e. a value denoting that a particular action should be taken) denoting that the program should terminate. If the input is anything other than `"END"`, the client should tell the user whether their input was a palindrome, whether it was all capital letters, and whether it was all lowercase letters.
+
+After the user enters the sentinel `"END"`, the program should tell the user:
+
+* How many palindromes they entered
+* How many caps-locked inputs they entered
+* How many lowercase inputs they entered
+
+It should then terminate.
 
 
 
