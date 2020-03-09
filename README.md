@@ -284,6 +284,8 @@ Notice that the boolean expressions above don't use the relational operators; th
 
 The conditional blocks in `if` statements are, well, blocks; they can contain a sequence of statements. These contained statements can also be `if` statements (or any other type of statement). For example, the program below consists of an `if` statement whose conditional blocks contain more `if` statements.
 
+<a name="FreeJacket"></a>
+
 ```java
 import java.util.Scanner;
 
@@ -513,7 +515,7 @@ class Client
 
 <a name="q16"></a>**EXERCISE 16** How many times does the loop in the program above iterate (assuming the user keeps providing inputs)?
 
-<a name="q17"></a>**EXERCISE 17** Rewrite the `FreeJacket` client above to use `UserWrangler.getYesNoResponse`. Comment on the length and readability of your new progam vs that of the original.
+<a name="q17"></a>**EXERCISE 17** Rewrite the [`FreeJacket`](#FreeJacket) client above to use `UserWrangler.getYesNoResponse`. Comment on the length and readability of your new progam vs that of the original.
 
 ## `for` Loops
 
