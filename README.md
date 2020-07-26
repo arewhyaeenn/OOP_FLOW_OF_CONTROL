@@ -355,6 +355,57 @@ class FreeJacket
 
 <a name="q10"></a>**[EXERCISE 10](#a10)** Write a program which prompts the user for two integer values `x` and `y`, denoting coordinates on the 2D Cartesian plane. Use nested `if` statements to tell them which quadrant their coordinates are in or which axis they are on.
 
+## The Conditional Operator
+
+The conditional operator (also known as the ternary operator) is to expressions what the `if` statement is to statements. With it, an expression can be made to have one value if a condition is true, and another if that condition is false.
+
+We'll introduce the ternary operator with an example. Consider the following snippet:
+
+```java
+int x;
+
+if (condition)
+{
+	x = 1;
+}
+else
+{
+	x = 0;
+}	
+```
+
+In the snippet above, `x` is set to 1 if the variable `condition` is true, and is set to 0 otherwise. This snippet can be rewritten in one line using the conditional operator:
+
+```java
+int x = (condition ? 1 : 0);
+```
+
+The parenthesis in the statement above are unnecessary, but have been included for readability. The expression `condition ? 1 : 0` evaluates to 1 if `condition` is true, and 0 otherwise.
+
+The ternary operator is written in the form:
+
+```java
+<boolean_expr> ? <true_expr> : <false_expr>
+```
+
+If the boolean expression is true, then the true expression is returned. Otherwise, the false expression is returned.
+
+Like `if` statements, ternary operations are nestable. Any of the three component expressions of the ternary expression might be ternary expressions themselves.
+For example:
+
+```java
+String season = temperature > 80 ? "Summer" :
+                temperature > 70 ? "Spring" : 
+                temperature > 60 ? "Fall"   :
+                "Winter";
+```
+
+The snippet above sets the `season` string to `"Summer"` if `temperature > 70`, sets it to `"Spring"` if `temperature > 60` (assuming `temperature` was not greater than 70), and so on. Note that the expression is on multiple lines solely for readability's sake, and they could all be on one long ugly line instead as far as functionality is concerned.
+
+You can think of the question mark as the `if`, only instead of coming before the condition it comes after the condition, and think of the colon as the `else`.
+
+It is never **necessary** to use a ternary operator. Anything that can be done by the ternary operator can be done with an `if` statement, albeit less concisely. The converse is not true; `if` statements can do much more than ternaries can. Neither is faster in terms of runtime, though arguably the ternary is faster in terms of time spent typing. So, when should you use the ternary operator? Only when it improves readability. 
+
 ## `while` Loops
 
 Sometimes it is necessary to repeat an action multiple times. This can be done with a **loop**. There are several types of loops in Java. The simplest type of loop is the `while` loop. `while` loops look like this:
