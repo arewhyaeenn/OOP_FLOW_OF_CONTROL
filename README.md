@@ -65,8 +65,6 @@ Java also includes **boolean operators**, which allow calculation of `boolean` v
 
 If you refer to the [Java 8 operator precedence](https://github.com/arewhyaeenn/COMP_150_LAB_2_JAVA_FUNDAMENTALS/blob/master/figures/operatorPrecedence.png) you'll see that, when evalutating logical expressions, first *not* operations (`!`) are performed from right to left, then *and* (`&&`) operations from left to right, and finally *or* (`||`) from left to right. Of course, parenthesis can be used to specify a different order.
 
-Check out [DeMorgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws) for rules to help simplify boolean expressions. Note that the laws are laws of mathematics, not of Java, so the symbols used for the *and*, *or* and *not* (or *negation*) operators are different, but defined near the top of the article.
-
 Boolean operations occur after arithmetic and comparison operations.
 
 <a name="q2"></a>**[EXERCISE 2](#a2)** The variables `x`, `y` and `z` are defined by:
@@ -112,6 +110,19 @@ Write boolean expressions which are equivalent to each of the following. Then, e
 	* `x` plus `5` equals `11`.
 	* The average of `x` and `y` is at least `3`.
 	* `z` is positive.
+
+### DeMorgan's Laws
+
+Check out [DeMorgan's Laws](https://en.wikipedia.org/wiki/De_Morgan%27s_laws) for rules to help simplify boolean expressions. Note that the laws are laws of mathematics, not of Java, so the symbols used for the *and*, *or* and *not* (or *negation*) operators are different, but defined near the top of the article.
+
+DeMorgan's Laws are essentially distribution of negation over parenthesized boolean expressions. They are:
+
+* `!(a || b)` is equivalent to `!a && !b`
+* `!(a && b)` is equivalent to `!a || !b`
+
+The rules can be derived quickly. Consider `!(a || b)`. This expression is true if and only if `a || b` is false. `a || b` is true if and only if either `a` or `b` is true, so `!(a || b)` is only true if and only if both `a` and `b` are false, i.e. `!a && !b` is true.
+
+Try to reason through the second law.
 
 ### Short-Circuit Evaluation
 
