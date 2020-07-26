@@ -447,6 +447,14 @@ while (i < 10)
 }
 ```
 
+A minor inaccuracy has been made above. A `while` statement doesn't necessarily need a block for its contents; it can look like this:
+
+```java
+while ( <boolean_expression> ) <statement>
+```
+
+Generally, when the loop body consists of a single statement, programmers will still use a block for readability's sake. If there is more than one statement in the loop body, then a block must be used.
+
 <a name="q11"></a>**EXERCISE 11** Create a simple program with the the while loop above in its main method in order to step through it with the debugger and observe the behavior of the `while` loop.
 
 <a name="q12"></a>**[EXERCISE 12](#a12)** Determine what value `i` has in the snippet above after the loop ceases interation.
@@ -490,6 +498,46 @@ Enter a positive integer > 7
 * * * * * *
 * * * * * * *
 ```
+
+### Infinite Loops
+
+When you run a program and it *just keeps running* but never seems to do anything, or prints a message over and over in the console, you are likely stuck in an **infinite** or **endless** loop. These occur not just in `while` loops, but also in the other types of loops that we'll discuss further on. Inifinite loops occur if the loop condition remains true forever. This might happen if the variables in the loop condition are untouched by the loop body.
+
+Consider the following loop:
+
+```java
+boolean a = true;
+while (a)
+{
+	System.out.println("Just keep swimming...");
+}
+```
+
+The loop above will keep printing the contained message **forever**, because `a` never becomes false.
+
+One common, sneaky cause of infinite loops is a misplaced semicolon:
+
+```java
+int i = 0;
+while (i < 10);
+{
+	i++;
+}
+```
+
+The loop above has an extra semicolon; `while (i < 10);` should be `while (i < 10)`. This causes it to loop infinitely. Recall, a `while` loop is, at its core, this:
+
+```java
+while ( <boolean_expression> ) <statement>
+```
+
+In the `while` statement `while (i < 10);`, the trailing `;` is treated as an entire statement (one which does nothing). It occupies the entirety of the loop body. This loop essentially reads "while `i` is less than 10, do nothing", so nothing is done and `i` remains less than 10. The block `{ i++; }` following the loop is not the loop body, but instead an isolated block which would be run once if the preceeding infinite loop ever finished.
+
+The common error above is a frustrating one. It is difficult to detect unless you already know what you're looking for. It is one of the errors that causes novice programmers to spend **hours or days** looking for an error in their logic, only to discover it was one sneaky semicolon.
+
+I'd like to take this opportunity for a friendly reminder: programming is full of unexpected delays and headaches, many of which lead to a facepalm when their causes are discovered. When something like this happens to you: Don't beat yourself up. Don't question whether you're cut out to be a programmer. We've all done this, multiple times in multiple different ways. Each time you make a mistake like this, it is a learning experience whose frustration will ensure that you don't make that particular mistake again. 
+
+When you're stuck and frustrated, never hesitate to ask for help, to take a walk, or to verbally abuse a rubber duck. The first is your right as a student and my joy as a teacher. The second two are proven debugging methods which have endured the test of time.
 
 ## `do while` Loops
 
@@ -1001,7 +1049,7 @@ public class Asterisks
 }
 ```
 
-### <a name="q16"></a>**[EXERCISE 16](#a16)**
+### <a name="a16"></a>**[EXERCISE 16](#q16)**
 
 The loop will iterate infinitely. It starts with `while (true)`; the boolean expression `true` will never cease to be true, no matter how many times the loop iterates.
 
