@@ -689,19 +689,19 @@ double d = 1.0;
 
 These expressions evaluate as follows:
 
-| **EXPRESSION**              | **VALUE**
-:-- | :-------------------------- | :--------
-1.  | `a < b`                     | `false`
-2.  | `a < d`                     | `false`
-3.  | `a <= d`                    | `true`
-4.  | `a == d`                    | `true`
-5.  | `b == d`                    | `false`
-6.  | `d < c`                     | `true`
-7.  | `a != a`                    | `false`
-8.  | `a == a`                    | `true`
-9.  | `Math.abs(b) > Math.abs(d)` | `true`
-10. | `d >= a`                    | `true`
-11. | `-a * b == 7.0f`            | `true`
+<i></i>| **EXPRESSION**              | **VALUE**
+:----- | :-------------------------- | :--------
+1.     | `a < b`                     | `false`
+2.     | `a < d`                     | `false`
+3.     | `a <= d`                    | `true`
+4.     | `a == d`                    | `true`
+5.     | `b == d`                    | `false`
+6.     | `d < c`                     | `true`
+7.     | `a != a`                    | `false`
+8.     | `a == a`                    | `true`
+9.     | `Math.abs(b) > Math.abs(d)` | `true`
+10.    | `d >= a`                    | `true`
+11.    | `-a * b == 7.0f`            | `true`
 
 ### <a name="a2"></a>[EXERCISE 2](#q2)
 
