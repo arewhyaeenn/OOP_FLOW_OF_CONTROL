@@ -1190,9 +1190,9 @@ Write a program which prompts the user for a positive integer, and then prints a
 
 ## Task 6
 
-Write a program which reads an input file. It should assume that all values in the input file are integers written in decimal. Your program should read all integers from the file and print their sum. Use [the `FileClient` classese here](https://github.com/arewhyaeenn/OOP_CLASSES_OBJECTS_METHODS#fileClient) (from a previous reading) as an example.
+Write a program which reads an input file. It should assume that all values in the input file are integers written in decimal. Your program should read all integers from the file and print their sum, maximum value, minimum value, and average. Use [the `FileClient` classese here](https://github.com/arewhyaeenn/OOP_CLASSES_OBJECTS_METHODS#fileClient) (from a previous reading) as an example. You'll need to create a file to be used as input to test your program, as well.
 
-To convert individual integers written in the file from their string from to int form, find and use an appropriate method in the [`Integer`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html) class. 
+To convert individual integers written in the file from their string from to int form, find and use an appropriate method in the [`Integer`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html) wrapper class.
 
 ## Task 7
 
@@ -1211,7 +1211,7 @@ This plan is by no stretch of the imagination efficient, but it does the job.
 
 HINT: You can the modulus operator `%` to determine if one integer is divisible by another. If `a` is divisible by `b`, then `a % b` (the remainder of division of `a` by `b`) has what value?
 
-### Task 6 Sample Runs
+### Task 7 Sample Runs
 
 ```
 Enter a positive integer > 144
