@@ -689,7 +689,7 @@ double d = 1.0;
 
 These expressions evaluate as follows:
 
-    | **EXPRESSION**              | **VALUE**
+| **EXPRESSION**              | **VALUE**
 :-- | :-------------------------- | :--------
 1.  | `a < b`                     | `false`
 2.  | `a < d`                     | `false`
