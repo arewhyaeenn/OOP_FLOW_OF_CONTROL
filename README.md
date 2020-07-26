@@ -1,4 +1,4 @@
-# COMP 150 Lab 4 - Flow of Control
+# OOP - Flow of Control
 In this lab you will learn:
 
 * What boolean expressions are, and how to write and evaluate them.
@@ -244,6 +244,7 @@ In other words, in a chain of `if`/`else if` statements, only one `true` block w
 Consider this example:
 
 <a name="doorguard"></a>
+
 ```java
 import java.util.Scanner;
 
@@ -835,6 +836,122 @@ Rewrite the [`DoorGuard`](#doorguard) class to run in a loop. It should prompt t
 
 ## Task 2
 
+Write a program which prompts the user for a day of the week. Use a `switch` to print out "0" if the user entered "Sunday", "1" if they entered "Monday", and so on. If the user's response is not one of the weekday names, print a message insulting them.
+
+### Task 2 Sample Runs
+
+```
+Enter a weekday > Tuesday
+
+Tuesday is day number 2!
+```
+
+```
+Enter a weekday > Sunday
+
+Sunday is day number 0!
+```
+
+```
+Enter a weekday > pumpernickel
+
+I said a day! You complete imbecile! You insufferable buffoon!
+```
+
+## Task 3
+
+Write a program which asks the user for grade, in integer form, from 0 to 100.
+
+If the user's response is negative or greater than 100, insult them.
+
+Otherwise, use `if` / `else` statements to print out the letter grade corresponding to the user's input.
+
+* 90 - 100 : A
+* 80 - 89 : B
+* 70 - 79 : C
+* 60 - 69 : D
+* 0 - 59 : F
+
+Then, write a second version of the program which uses a `switch` instead of `if` `else`. (HINT: divide the user's response by 10)
+
+## Task 4
+
+### Part 1
+
+Write a program much like that written in [Exercise 14](#q1), but which mirrors the printed shape to form a "bottom half". 
+
+#### Part 1 Sample Run
+
+```
+Enter a positive integer > 7
+
+*
+* *
+* * *
+* * * *
+* * * * *
+* * * * * *
+* * * * * * *
+* * * * * *
+* * * * *
+* * * *
+* * *
+* *
+* 
+```
+
+### Part 2
+
+Write a new version of your program from part 1 that alternates from row to row between asterisks and carrots.
+
+#### Part 2 Sample Run
+
+```
+Enter a positive integer > 7
+
+*
+^ ^
+* * *
+^ ^ ^ ^
+* * * * *
+^ ^ ^ ^ ^ ^
+* * * * * * *
+^ ^ ^ ^ ^ ^
+* * * * *
+^ ^ ^ ^
+* * *
+^ ^
+* 
+```
+
+### Part 3
+
+Write a new version of your program from part 2 that prints out a "checkboard" pattern of asterisks and carrots. 
+
+HINT: the first character on each row is the same as it was in part 2.
+
+#### Part 3 Sample Run
+
+```
+Enter a positive integer > 7
+
+*
+^ *
+* ^ *
+^ * ^ *
+* ^ * ^ *
+^ * ^ * ^ *
+* ^ * ^ * ^ *
+^ * ^ * ^ *
+* ^ * ^ *
+^ * ^ *
+* ^ *
+^ *
+* 
+```
+
+## Task 5
+
 Write a program which prompts the user for a positive integer, and then prints a diamond pattern in which the number of asterisks on the middle line is equal to their entered integer. The example below is what should be printed if the user enters `3`.
 
 ```
@@ -845,45 +962,64 @@ Write a program which prompts the user for a positive integer, and then prints a
   * 
 ```
 
-## Task 3
+## Task 6
 
-Add a method to the [`UserWrangler`](#UserWrangler) class called `getIntFromUser`. It should, in a loop:
+Write a program which prompts the user for a positive integer, and then prints out the prime factorization of their response.
 
-* Prompt the use for an integer.
-* Use a `Scanner`'s `next` method to get `String` values from the user.
-* Go through the user's input character-by-character to ensure it is an integer literal.
-	* Check out the following:
-		* the `String` class's `length` field
-		* the `String` class's `charAt` method
-		* the `Character` class's `isDigit` method
-* If the user's response is an integer literal, return the corresponding integer value. Otherwise, start the loop over.
-	* Check out the `Integer` class's `parseInt` method.
+Do not import anything other than the Scanner.
 
-Create a client to test your new `getIntFromUser` method.
+One way you might go about this using nested loops:
 
-What advantages does your new `getIntFromUser` method have over the `Scanner`'s `nextInt` method?
+* Start a "factor" variable at 2
+* In a loop:
+	* repeatedly print the current factor, and divide the user input by it, until the user input is no longer divisible by the factor
+	* increment the factor
 
-Optionally, make your implementation able to handle (but not require) a leading `+` or `-` sign on the user input.
+This plan is by no stretch of the imagination efficient, but it does the job.
 
-If you really want to go hard here, do some research on use of regular expressions in Java. If you have trouble, don't worry, we'll cover them in the next lab.
+HINT: You can the modulus operator `%` to determine if one integer is divisible by another. If `a` is divisible by `b`, then `a % b` (the remainder of division of `a` by `b`) has what value?
 
-## Task 4 (Bonus)
+### Task 6 Sample Runs
 
-Write a program which prompts the user for an integer, and then prints out the prime factorization of their response.
+```
+Enter a positive integer > 144
 
-## Task 5 (Bonus)
+The prime factorization of 144 is:
+2 2 2 2 3 3
+```
 
-Repeat task 3, but for doubles instead of ints.
+```
+Enter a positive integer > 45
 
-## Task 6 (Bonus)
+The prime factorization of 45 is:
+3 3 5
+```
+
+## Task 7
+
+Write a method which takes as input an integer, returns `true` if the integer is prime, and returns `false` otherwise. Do not import anything.
+
+If the input is negative, 0 or 1, `false` should be returned.
+
+If the input `x` is greater than 1, you can test if it is prime (inefficiently) by checking if it is divisible by any integer from 2 up to half of `x`. If it is not divisible by any of these numbers, then it is prime; otherwise, it is not prime.
+
+Your submission should also include the client that you use to test your method.
+
+## Task 8
+
+Write a method which takes as input an integer `n` and prints the first `n` prime numbers. Do not import anything; instead, use a loop and the method that you wrote in the previous task.
+
+Your submission should include the client that you use to test your method.
+
+## Task 9 (Optional)
 
 Create a class called `StringUtils`. In it, create a `boolean` method called `isPalindrome` which takes a `String` in as an argument and outputs `true` if the input is a palindrome, and `false` otherwise.
 
-(A `String` is a palindrome if it is character-wise "symmetrical"; the first letter is the same as the last letter, the second is the same as the second-to-last, and so on)
+A `String` is a palindrome if it is character-wise "symmetrical"; the first letter is the same as the last letter, the second is the same as the second-to-last, and so on.
 
 Add to the `StringUtils` methods two more `boolean` methods called `isCapsLocked` and `isLowerCase`; they should each take a `String` as an argument, and should return `true` if every letter in the `String` is capital or lower case, respectively, and `false` otherwise. Non-alphabetic characters should be treated as neither capital nor lowercase.
 
-Finall, write a client class to test these methods. Your client class should prompt the user for inputs in an infinite loop. For each input, the program should check if the input is the value `"END"`, which should be used as a **sentinel** (i.e. a value denoting that a particular action should be taken) denoting that the program should terminate. If the input is anything other than `"END"`, the client should tell the user whether their input was a palindrome, whether it was all capital letters, and whether it was all lowercase letters.
+Finally, write a client class to test these methods. Your client class should prompt the user for inputs in an infinite loop. For each input, the program should check if the input is the value `"END"`, which should be used as a **sentinel** (i.e. a value denoting that a particular action should be taken) denoting that the program should terminate. If the input is anything other than `"END"`, the client should tell the user whether their input was a palindrome, whether it was all capital letters, and whether it was all lowercase letters.
 
 After the user enters the sentinel `"END"`, the program should tell the user:
 
