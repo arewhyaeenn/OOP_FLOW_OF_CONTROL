@@ -1142,6 +1142,12 @@ Write a program which prompts the user for a positive integer, and then prints a
 
 ## Task 6
 
+Write a program which reads an input file. It should assume that all values in the input file are integers written in decimal. Your program should read all integers from the file and print their sum. Use [the `FileClient` classese here](https://github.com/arewhyaeenn/OOP_CLASSES_OBJECTS_METHODS#fileClient) (from a previous reading) as an example.
+
+To convert individual integers written in the file from their string from to int form, find and use an appropriate method in the [`Integer`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html) class. 
+
+## Task 7
+
 Write a program which prompts the user for a positive integer, and then prints out the prime factorization of their response.
 
 Do not import anything other than the Scanner.
@@ -1173,7 +1179,7 @@ The prime factorization of 45 is:
 3 3 5
 ```
 
-## Task 7
+## Task 8
 
 Write a method which takes as input an integer, returns `true` if the integer is prime, and returns `false` otherwise. Do not import anything.
 
@@ -1183,13 +1189,13 @@ If the input `x` is greater than 1, you can test if it is prime (inefficiently) 
 
 Your submission should also include the client that you use to test your method.
 
-## Task 8
+## Task 9
 
 Write a method which takes as input an integer `n` and prints the first `n` prime numbers. Do not import anything; instead, use a loop and the method that you wrote in the previous task.
 
 Your submission should include the client that you use to test your method.
 
-## Task 9 (Optional)
+## Task 10 (Optional)
 
 Create a class called `StringUtils`. In it, create a `boolean` method called `isPalindrome` which takes a `String` in as an argument and outputs `true` if the input is a palindrome, and `false` otherwise.
 
