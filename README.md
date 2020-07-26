@@ -113,9 +113,15 @@ Write boolean expressions which are equivalent to each of the following. Then, e
 	* The average of `x` and `y` is at least `3`.
 	* `z` is positive.
 
-### Short Circuit Evaluation
+### Short-Circuit Evaluation
 
 When boolean operations are evaluated, the values of input expressions are only calculated if necessary; unnecessary evaluations are skipped. For instance, in the expression `a && b`, if `a` is `false` then `b` won't be evaluated because `a && b` is necessarily `false` regardless of `b`'s value. Similarly, when evaluating `a || b` if `a` is `true` then `b`'s value isn't needed to determine that `a || b` is `true`.
+
+One benefit of short-circuit evaluation: if an object may or may not be `null`, you can check if it is `null` and access it in the same boolean expression without running into *NullReferenceException*s. For example, the following boolean expression will not lead to an exception even if `myString` is `null`:
+
+```java
+myString != null && myString.length > 0
+```
 
 ## `if`/`else`
 
@@ -145,13 +151,13 @@ class MyClass
 }
 ```
 
-The program above prompts the user for an integer, and stores their response in a variable called `userInput`. It then prints out a message, telling the user whether their input was greater than `10` or not.
+The program above prompts the user for an integer, and stores their response in a variable called `userInput`. It then prints out a message, telling the user whether their input was greater than 10 or not.
 
-<a name="q4"></a>**EXERCISE 4** Edit the program above to tell the user whether their response equals `10`.
+<a name="q4"></a>**[EXERCISE 4](#a4)** Edit the program above to tell the user whether their response equals 10 instead of telling them whether it is greater than 10.
 
 <a name="q5"></a>**[EXERCISE 5](#a5)** If the two printed `String`s in the conditional blocks above are switched, what happens? Does the value of the printed `String`s affect the flow of control? Does the accuracy of printed `String`s affect program execution? Does the compiler ensure that the printed messages align with the conditions under which they are printed (i.e. that they make sense or are accurate)?
 
-###<a name="if"></a>`if` Statements
+### <a name="if"></a> `if` Statements
 
 The simplest `if` statements look like: `if ( <boolean_expression> ) { <true_block> }`.
 
@@ -208,7 +214,7 @@ Here if the value assigned to `x` is `5`, then the message "mmhmmm" is printed; 
 
 In an `if` statement, the block(s) which may or may not be executed depending on the value(s) of boolean expression(s) are called **conditional blocks**. This is because they are blocks whose contained instructions are only executed if specific conditions (specifically, those defined in the boolean expression) are met.
 
-<a name="q6"></a>**EXERCISE 6** Write a program which asks the user if they would like a free milkshake. If the user responds with `yes`, print out an appropriate message (e.g. "Ok, here's your milkshake!"). Otherwise, assume they said `no` in some way or another and print out an appropriate message.
+<a name="q6"></a>**[EXERCISE 6](#a6)** Write a program which asks the user if they would like a free milkshake. If the user responds with `yes`, print out an appropriate message (e.g. "Ok, here's your milkshake!"). Otherwise, assume they said `no` in some way or another and print out an appropriate message.
 
 ### Statement Nestability
 
@@ -347,7 +353,7 @@ class FreeJacket
 
 <a name="q9"></a>**EXERCISE 9** Read the program above. Theorize about how it should behave. When you believe you know what it will do in any case (i.e. with any sequence of user inputs) step through it with the debugger to test your understanding.
 
-<a name="q10"></a>**EXERCISE 10** Write a program which prompts the user for two integer values `x` and `y`, denoting coordinates on the 2D Cartesian plane. Use nested `if` statements to tell them which quadrant their coordinates are in or which axis they are on.
+<a name="q10"></a>**[EXERCISE 10](#a10)** Write a program which prompts the user for two integer values `x` and `y`, denoting coordinates on the 2D Cartesian plane. Use nested `if` statements to tell them which quadrant their coordinates are in or which axis they are on.
 
 ## `while` Loops
 
@@ -399,7 +405,7 @@ while (i < 100)
 
 What should the snippet above print? Are the printed messages accurate? What value should `i` have after the loop terminates? Test your answers to this question by creating a minimal program to run the snippet above.
 
-<a name="q14"></a>**[EXERCISE 14](#a14)** Like `if` statements, `while` loops (and other loop types) can be nested, because they can appear in any block. Write a program that uses a nested `while` loop to print a pattern like the one below, with a number of lines specified by the user:
+<a name="q14"></a>**[EXERCISE 14](#a14)** Like `if` statements, `while` loops (and other loop types) can be nested, because they can appear wherever a statement can appear. Write a program that uses a nested `while` loop to print a pattern like the one below, with a number of lines specified by the user:
 
 ```
 *
@@ -489,7 +495,7 @@ class UserWrangler
 
 At the moment, the class above contains a single method, called `getYesNoResponse`. It takes as an argument a `String`, storing the prompt (i.e. what to print to request information from the user). It returns a `boolean` value; `true` if the user enters "yes" and `false` if the user enters "no". It allows a programmer to ask the user a yes or no question, and be given the result as a `boolean` with a single method call.
 
-<a name="q15"></a>**EXERCISE 15** Use the client below to step through `UserWrangler.getYesNoResponse` with the Debugger. Your project will need to include both the client below and the [`UserWrangler`](#UserWrangler) class defined above.
+<a name="q15"></a>**EXERCISE 15** Use the client below to step through `UserWrangler.getYesNoResponse` with the Debugger. When you're sure you understand how it works, you're ready to move on.
 
 ```java
 class Client
@@ -514,9 +520,9 @@ class Client
 }
 ```
 
-<a name="q16"></a>**EXERCISE 16** How many times does the loop in the program above iterate (assuming the user keeps providing inputs)?
+<a name="q16"></a>**[EXERCISE 16](#a16)** How many times does the loop in the client above iterate (assuming the user keeps providing inputs)?
 
-<a name="q17"></a>**EXERCISE 17** Rewrite the [`FreeJacket`](#FreeJacket) client above to use `UserWrangler.getYesNoResponse`. Comment on the length and readability of your new progam vs that of the original.
+<a name="q17"></a>**EXERCISE 17** Rewrite the [`FreeJacket`](#FreeJacket) client above to use `UserWrangler.getYesNoResponse`. Note the length and readability of your new progam vs that of the original.
 
 ## `for` Loops
 
@@ -533,7 +539,7 @@ for (<initializing_statement> ; <boolean_expression> ; <end_of_iteration_stateme
 
 `for` loops function much like `while` loops do, but come with a bit more of the setup encased in the statement syntax. The three statements in the `for` loop's parenthesis are as follows:
 
-* `<initializing_statement>` : executed before the first iteration.
+* `<initializing_statement>` : executed before the first iteration. Any declarations made are made in the scope of the loop, functionally, even though they don't appear in the block.
 * `<boolean_expression>` : evaluated before each iteration; if `true`, keep looping; if `false`, stop looping.
 * `<end_of_iteration_statement>` : executed after each iteration, before evaluating the boolean expression for the next iteration.
 
@@ -589,11 +595,11 @@ Note that in the loop above, the loop condition is simply `true`. This means tha
 A `continue` statement will cause the loop to start iteration again from the beginning of the loop body if the loop condition is still `true`. In other words, the `continue` statement ends the current iteration, but allows the loop to continue onto the next iteration.
 
 ```java
-int i = 0;
-while (i < 10)
+boolean flag = false;
+for (int i = 0; i < 11; flag = !flag )
 {
 	++i;
-	if (i % 2 == 0)
+	if (flag)
 	{
 		continue;
 	}
@@ -601,9 +607,9 @@ while (i < 10)
 }
 ```
 
-The loop above starts `i` at `0` and increments `i` by `1` at the beginning of each iteration, so eventually the loop condition `i < 10` will be `false`. In each iteration, if `i` is even (i.e. if the remainder when `i` divided by `2` is `0`) after being incremented then the loop body starts over; otherwise, the loop body continues to print `i` before starting over.
+The loop above starts `i` at `0` and increments `i` by `1` at the beginning of each iteration, so eventually the loop condition `i < 11` will be `false`. In each iteration, if `flag` is true then the loop body starts over; otherwise, the loop body continues to print `i` before starting over. At the end of each iteration, the value of `flag` is negated; if it was true, it becomes false and vice-versa.
 
-<a name="q21"></a>**EXERCISE 21** What values are printed by the loop above? Verify by running.
+<a name="q21"></a>**EXERCISE 21** What values are printed by the loop above? Verify by running. If you're not sure why one or more of the values is printed, trace the loop with the debugger.
 
 ## `switch`
 
@@ -612,6 +618,8 @@ The loop above starts `i` at `0` and increments `i` by `1` at the beginning of e
 Essentially, the `switch` takes as input an expression with one of these types, and performs the corresponding `case` associated with the expression's value.
 
 In the following example, the `dayToInt` takes as an argument the name of a week, and outputs 1 for Sunday, 2 for Monday, etc.
+
+<a name="dateUtils"></a>
 
 ```java
 class DateUtils
@@ -651,28 +659,25 @@ class DateUtils
 }
 ```
 
-<a name="q22"></a>**EXERCISE 22** What does it output of the `dayToInt` method above if the `dayName` argument is not the name of a day of the week? Verify by running.
+Note the `break` statements in each case. The `switch` is named aptly; once it encounters its input value, it "turns on", and continues executing not just the case with its input value, but also any subsequent cases. The `break` statements cause only one case to be executed. There are situations in which it is useful to let more than one case evaluate. For example, this functionality allows multiple cases which should have the same contents to be written "together". For instance, the "Sunday" case could be made to allow "sunday" and "SUNDAY" as inputs as well like this:
+
+```java
+case "Sunday":
+case "sunday":
+case "SUNDAY":
+    dayInt = 1;
+    break;
+```
+
+<a name="q22"></a>**EXERCISE 22** What is the output of the `dayToInt` method above if the `dayName` argument is not the name of a day of the week? Verify by running.
 
 <a name="q23"></a>**EXERCISE 23** Create a client class to test the `dayToInt` method. You should ensure that it outputs the correct value for every day of the week, and for a variety of invalid inputs.
-
-<a name="q24"></a>**EXERCISE 24** :
-
-* Add a `static` method to the [`UserWrangler`](#UserWrangler) class called `getMonthName` which
-	* requires no arguments
-	* prompts the user for the name of a month until the user enters a valid month name (use a loop)
-	* returns the valid month name entered by the user (as a `String`)
-* Add to the `DateUtils` class. In it, create a `static` method called `monthToInt` which:
-	* requires a String argument (the name of a month)
-		* returns an `int` (1 for January, 2 for February, etc, 0 for invalid)
-* Create a client class to test both `getMonthName` and `monthToInt` by using the output from `getMonthName` as the input for `monthToInt` and printing the resulting `int`
-
-`switch`s also works with the accepted primitives' respective wrapper classes `Byte`, `Short`, `Integer` and `Character`, as well as with enumerated types (`enum`s) which we will discuss in a future lab.
 
 ### `switch` and `if` Statements
 
 You've likely noticed that anything that can be done with a `switch` can also be done with an `if`/`else`. If the number of possibilities is sufficiently large, the `switch` is faster. However, each possibility in an `if`/`else` chain or a `switch` must be typed "by hand" and if that number is large enough for its effect on performance to be relevant, you should probably be organizing the selection a different way.
 
-Generally, the decision to use a `switch` or an `if`/`else` chain comes down to readability in context and the preference of the programmer.
+Generally, if a `switch` can be used then the decision to use a `switch` or an `if`/`else` chain comes down to readability in context and the preference of the programmer. Often there isn't an option; the boolean expressions in the `if`/`else` are more complex than simple equality checks, a `switch` isn't the right tool for the job.
 
 ## Answers to Selected Exercises
 
@@ -761,13 +766,131 @@ We are to write boolean expressions which are equivalent to each of the followin
 | 3.  | `y + 7 > x`                                      | `true`    |
 | 4.  | `x + 5 == 11 \|\| (x + y) / 2.0 >= 3 \|\| z > 0` | `true`    |
 
+### <a name="a4"></a>**[EXERCISE 4](#q4)**
+
+```java
+import java.util.Scanner;
+
+class MyClass
+{
+    public static void main(String[] args)
+    {
+        Scanner scan = new Scanner( System.in );
+        
+        System.out.println("Enter an integer : ")
+        long userInput = scan.nextLong();
+        
+        if (userInput == 10)
+        {
+            System.out.println("Your input equals 10.");
+        }
+        else
+        {
+            System.out.println("Your input does not equal 10.");
+        }
+    }
+}
+```
+
 ### <a name="a5"></a>**[EXERCISE 5](#q5)** 
 
 If the two printed `String` values are switched (so the printed messages simply lie to the user) the program otherwise functions the same. These values will be printed, even if they are completely inaccurate or nonsensical. The program does whatever we instruct it to, even when the instructions are stupid.
 
+### <a name="q6"></a>**[EXERCISE 6](#a6)**
+
+```java
+import java.util.Scanner;
+
+public class FreeMilkshake
+{
+    public static void main(String[] args)
+    {
+        Scanner console = new Scanner(System.in);
+        System.out.println("Would you like a FREE MILKSHAKE!?!?!");
+
+        String response = console.next();
+
+        if (response.equals("yes"))
+        {
+            System.out.println("Ok, here's your milkshake!");
+        }
+        else
+        {
+            System.out.println("But... it's a free milkshake...");
+        }
+    }
+}
+```
+
 ### <a name="a7"></a>**[EXERCISE 7](#q7)**
 
-If the user enters the current password, then the message "Welcome back!" is printed. If they enter the old password, the message "That's the old password..." is printed. If their response is neiter the current password nor the old one, the message "Get lost!" is printed.
+If the user enters the current password, then the message "Welcome back!" is printed. If they enter the old password, the message "That's the old password..." is printed. If their response is neither the current password nor the old one, the message "Get lost!" is printed.
+
+### <a name="q10"></a>**[EXERCISE 10](#a10)**
+
+```java
+import java.util.Scanner;
+
+public class QuadrantClient
+{
+    public static void main(String[] args)
+    {
+        Scanner console = new Scanner(System.in);
+
+        System.out.print("Enter the x coordinate > ");
+        int x = console.nextInt();
+
+        System.out.print("Enter the y coordinate > ");
+        int y = console.nextInt();
+
+        if (y > 0)
+        {
+            if (x > 0)
+            {
+                System.out.println("(" + x + ", " + y + ") is in the FIRST quadrant!");
+            }
+            else if (x < 0)
+            {
+                System.out.println("(" + x + ", " + y + ") is in the SECOND quadrant!");
+            }
+            else
+            {
+                System.out.println("(" + x + ", " + y + ") is on the positive y axis!");
+            }
+        }
+        else if (y < 0)
+        {
+            if (x < 0)
+            {
+                System.out.println("(" + x + ", " + y + ") is in the THIRD quadrant!");
+            }
+            else if (x > 0)
+            {
+                System.out.println("(" + x + ", " + y + ") is in the FOURTH quadrant!");
+            }
+            else
+            {
+                System.out.println("(" + x + ", " + y + ") is on the negative y axis!");
+            }
+        }
+        else
+        {
+            if (x > 0)
+            {
+                System.out.println("(" + x + ", " + y + ") is on the positive x axis!");
+            }
+            else if (x < 0)
+            {
+                System.out.println("(" + x + ", " + y + ") is on the negative x axis!");
+            }
+            else
+            {
+                System.out.println("(" + x + ", " + y + ") is the origin!");
+            }
+        }
+    }
+}
+```
 
 ### <a name="a12"></a>**[EXERCISE 12](#q12)**
 
@@ -816,6 +939,10 @@ public class Asterisks
 }
 ```
 
+### <a name="q16"></a>**[EXERCISE 16](#a16)**
+
+The loop will iterate infinitely. It starts with `while (true)`; the boolean expression `true` will never cease to be true, no matter how many times the loop iterates.
+
 ### <a name="a19"></a>**[EXERCISE 19](#q19)**
 
 If we declare `i` outside of the `for` loop, then it exists outside of the scope of the `for` loop.
@@ -836,27 +963,16 @@ Rewrite the [`DoorGuard`](#doorguard) class to run in a loop. It should prompt t
 
 ## Task 2
 
-Write a program which prompts the user for a day of the week. Use a `switch` to print out "0" if the user entered "Sunday", "1" if they entered "Monday", and so on. If the user's response is not one of the weekday names, print a message insulting them.
+* Add a `static` method to the [`UserWrangler`](#UserWrangler) class called `getMonthName` which
+	* requires no arguments
+	* prompts the user for the name of a month until the user enters a valid month name (use a loop)
+	* returns the valid month name entered by the user (as a `String`)
+* Add to the [`DateUtils`](#dateUtils) class. In it, create a `static` method called `monthToInt` which:
+	* requires a String argument (the name of a month)
+		* returns an `int` (1 for January, 2 for February, etc, 0 for invalid)
+* Create a client class to test both `getMonthName` and `monthToInt` by using the output from `getMonthName` as the input for `monthToInt` and printing the resulting `int`
 
-### Task 2 Sample Runs
-
-```
-Enter a weekday > Tuesday
-
-Tuesday is day number 2!
-```
-
-```
-Enter a weekday > Sunday
-
-Sunday is day number 0!
-```
-
-```
-Enter a weekday > pumpernickel
-
-I said a day! You complete imbecile! You insufferable buffoon!
-```
+`switch`s also works with the accepted primitives' respective wrapper classes `Byte`, `Short`, `Integer` and `Character`, as well as with enumerated types (`enum`s) which we will discuss in a future lab.
 
 ## Task 3
 
