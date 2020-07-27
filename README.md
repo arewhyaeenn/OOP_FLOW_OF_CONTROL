@@ -6,6 +6,9 @@ In this lab you will learn:
 * How to use `for`, `while`, and `do while` loops to repeat actions.
 * How to use the `break` and `continue` keywords.
 * How to use a `switch`.
+* How to use indexes to access individual characters in a string.
+* How to traverse a string using a loop.
+* How to use some string methods.
 
 ## Boolean Expressions
 
@@ -719,6 +722,8 @@ for (int i = 0; i < 11; flag = !flag )
 
 The loop above starts `i` at `0` and increments `i` by `1` at the beginning of each iteration, so eventually the loop condition `i < 11` will be `false`. In each iteration, if `flag` is true then the loop body starts over; otherwise, the loop body continues to print `i` before starting over. At the end of each iteration, the value of `flag` is negated; if it was true, it becomes false and vice-versa.
 
+In the loop above, the variable called `flag` was named this for a reason. **Flag variables** are (generally boolean) variables used to track conditions for looping and/or selection, generally throughout the iteration of a loop. You will need to use flag variables in several of your lab tasks. In at least one lab task, you'll need to use several flag variables.
+
 <a name="q21"></a>**EXERCISE 21** What values are printed by the loop above? Verify by running. If you're not sure why one or more of the values is printed, trace the loop with the debugger.
 
 ## `switch`
@@ -788,6 +793,76 @@ case "SUNDAY":
 You've likely noticed that anything that can be done with a `switch` can also be done with an `if`/`else`. If the number of possibilities is sufficiently large, the `switch` is faster. However, each possibility in an `if`/`else` chain or a `switch` must be typed "by hand" and if that number is large enough for its effect on performance to be relevant, you should probably be organizing the selection a different way.
 
 Generally, if a `switch` can be used then the decision to use a `switch` or an `if`/`else` chain comes down to readability in context and the preference of the programmer. Often there isn't an option; the boolean expressions in the `if`/`else` are more complex than simple equality checks, a `switch` isn't the right tool for the job.
+
+## Strings
+
+Strings are sequence of characters. The string elements are numbered, or **indexed**. The first character's index is 0, the second is 1, and so on. With the initialization `String myString = "Hello":`, the instantiated string is indexed as follows:
+
+| **char**  | `'H'` | `'e'` | `'l'` | `'l'` | `'o'` |
+| :-------: | :---: | :---: | :---: | :---: | :---: |
+| **index** | 0     | 1     | 2     | 3     | 4     |
+
+### `charAt` Method
+
+The individual characters of a string can be accessed with their indexes using the `charAt` method. With `myString` defined as above, `myString.charAt(1)` is the character `'e'`.
+
+### `length` Method
+
+Strings have a `length()` method, which can be accessed using the accessor operator. The `length()` returns the number of characters in the string; `myString.length()` is 5 above, because `"Hello"` is 5 characters long. Note that the largest index (4) is 1 less than the length. This is true for all non-empty strings; it is a side effect of the index starting at 0.
+
+### Traversing Strings
+
+Loops are often used to traverse strings (and other iterables like arrays) one element at a time. The following loops both do the same thing: print out each character in `myString` on its own line.
+
+```java
+for (int i = 0; i < myString.length(); i++)
+{
+    System.out.println(myString.charAt(i));
+}
+```
+
+```java
+int i = 0;
+while (i < myString.length())
+{
+    System.out.println(myString.charAt(i));
+    i++;
+}
+```
+
+<a name="q24"></a>**[EXERCISE 24](#a24)** Write a client which prints out a string, one character at a time, backwards. Write a second version of this client which instead creates a new string which is the first string, reversed. This could be done with the `StringBuilder` class, but you should use loops here to practice instead; create an empty string, then go through the string that you want to reverse backward, using `charAt` to add each character to the new string.
+
+### IndexOutOfBoundsException
+
+If you try to index a string (or another iterable) with an index that it doesn't contain, an *IndexOutOfBounds* exception will be thrown. This happens if the index is negative, because indexing starts at 0, or if the index is larger than the maximum index in the string (1 less than its length).
+
+<a name="q25"></a>**[EXERCISE 25](#a25)** In one of the loops above for traversing a string, replace the `i < myString.length()` with `i <= myString.length()`. Put your loop in a minimal program to run it, and verify that an *IndexOutOfBoundsException* is thrown. Why is it thrown? Which index is out of bounds?
+
+### `substring` Method
+
+It is sometimes necessary to get a "piece" of a string consisting of several contiguous characters i.e. a **substring**. This can be done with the `substring` method.
+
+This method has two forms. The first form takes a single int argument, specifying the index of the first character in the substring. The returned substring will include all characters from the specified index to the end of the string. For example:
+
+```
+String myString = "Hello World!";
+String mySubstring = myString.substring(2);
+```
+
+In the example above, `mySubstring` gets the characters in `myString` from index 2 to the end. The result is `"llo World!"`; index 2 is the third character, because indexing starts at 0.
+
+The `substring` method can also specify an end index, specifying where the substring should end. It does not specify the index of the last substring element, but instead the index of the first excluded element; all indexes from the start index up to (but not including) the end index are in the substring. For example:
+
+```
+String myString = "Hello World!";
+String mySubstring = myString.substring(2,7);
+```
+
+The substring picked out in the snipped above is `"llo W"`. The substring starts on index 2 (the first `'l'`) and ends just before index 7 (the `'o'` in "World").
+
+<a name="q26"></a>**[EXERCISE 26](#a26)** Using the initialization `String myString = "Hello World!"`, write two `substring` calls. One should extract the word "Hello", and the other should extract "World!".
+
+We will cover more string methods in the next lab. There are **a lot** of them. Check out the [API](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html).
 
 ## Answers to Selected Exercises
 
@@ -1064,6 +1139,49 @@ for (i = 0; i < 10; ++i)
 	System.out.println(i);
 }
 ```
+
+### <a name="a24"></a>**[EXERCISE 24](#q24)**
+
+The following client:
+
+```java
+public class ReverseStringClient
+{
+    public static void main(String[] args)
+    {
+        String myString = "Idk some string value that isn't a palindrome...";
+
+        String reversedString = "";
+
+        for (int i = myString.length()-1; i >= 0; i--)
+        {
+            reversedString += myString.charAt(i);
+        }
+
+        System.out.println("\"" + myString + "\"\n reversed is \n\"" + reversedString + "\"");
+    }
+}
+```
+
+has the following output:
+
+```
+"Idk some string value that isn't a palindrome..."
+ reversed is 
+"...emordnilap a t'nsi taht eulav gnirts emos kdI"
+
+Process finished with exit code 0
+```
+
+### <a name="a25"></a>**[EXERCISE 25](#q25)**
+
+Changing the loop condition to `i <= myString.length()` allows the loop to iterate when `i` is equal to `myString.length()`. Recall, the largest index in `myString` is 1 less than its length, because indexing starts at 0, so when the loop iterates with `i` equal to `myString.length()` and `i` is used to index `myString`, it is out of the bounds of `myString`'s indices.
+
+### <a name="a26"></a>**[EXERCISE 26](#q26)**
+
+With the initialization `String myString = "Hello World!";`, we can extract "Hello" with `myString.substring(0,5)`. The `'H'` is index 0, and the space is index 5.
+
+"World!" can be extracted with `myString.substring(6)`. The `'W'` is index 6, and without an end index provided the substring goes to the end of the string.
 
 # Lab Assignment
 
