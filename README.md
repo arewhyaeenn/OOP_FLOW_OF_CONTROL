@@ -134,7 +134,7 @@ When boolean operations are evaluated, the values of input expressions are only 
 One benefit of short-circuit evaluation: if an object may or may not be `null`, you can check if it is `null` and access it in the same boolean expression without running into *NullReferenceException*s. For example, the following boolean expression will not lead to an exception even if `myString` is `null`:
 
 ```java
-myString != null && myString.length > 0
+myString != null && myString.length() > 0
 ```
 
 ## `if`/`else`
@@ -1308,11 +1308,45 @@ Write a program which prompts the user for a positive integer, and then prints a
 
 ## Task 6
 
-Write a program which reads an input file. It should assume that all values in the input file are integers written in decimal. Your program should read all integers from the file and print their sum, maximum value, minimum value, and average. Use [the `FileClient` classese here](https://github.com/arewhyaeenn/OOP_CLASSES_OBJECTS_METHODS#fileClient) (from a previous reading) as an example. You'll need to create a file to be used as input to test your program, as well.
+Write a program which reads an input file. It should assume that all values in the input file are integers written in decimal. Your program should read all integers from the file and print their sum, maximum value, minimum value, and average. Use [the `FileClient` classese here](https://github.com/arewhyaeenn/OOP_CLASSES_OBJECTS_METHODS#fileClient) (from a previous reading) as an example. You'll need to create a file to be used as input to test your program, as well. Your program should work whether the integers are separated by spaces, new lines, tabs or a mix of the three (but it does not need to work with other delimiters, like commas). In other words, it should work as long as the integers are separated only by white space characters (this is what the `Scanner`'s `next<primitive>` functions do).
 
 To convert individual integers written in the file from their string from to int form, find and use an appropriate method in the [`Integer`](https://docs.oracle.com/javase/8/docs/api/java/lang/Integer.html) wrapper class.
 
 ## Task 7
+
+Write a program which takes a word as input and does as the sample runs below demonstrate:
+
+```
+Enter a word: word
+
+w
+wo
+wor
+word
+ ord
+  rd
+   d
+```
+
+```
+Enter a word: racecar
+
+r
+ra
+rac
+race
+racec
+raceca
+racecar
+ acecar
+  cecar
+   ecar
+    car
+     ar
+      r
+```
+
+## Task 8
 
 Write a program which prompts the user for a positive integer, and then prints out the prime factorization of their response.
 
@@ -1329,7 +1363,7 @@ This plan is by no stretch of the imagination efficient, but it does the job.
 
 HINT: You can the modulus operator `%` to determine if one integer is divisible by another. If `a` is divisible by `b`, then `a % b` (the remainder of division of `a` by `b`) has what value?
 
-### Task 7 Sample Runs
+### Sample Runs
 
 ```
 Enter a positive integer > 144
@@ -1345,7 +1379,7 @@ The prime factorization of 45 is:
 3 3 5
 ```
 
-## Task 8
+## Task 9
 
 Write a method which takes as input an integer, returns `true` if the integer is prime, and returns `false` otherwise. Do not import anything.
 
@@ -1355,13 +1389,13 @@ If the input `x` is greater than 1, you can test if it is prime (inefficiently) 
 
 Your submission should also include the client that you use to test your method.
 
-## Task 9
+## Task 10
 
 Write a method which takes as input an integer `n` and prints the first `n` prime numbers. Do not import anything; instead, use a loop and the method that you wrote in the previous task.
 
 Your submission should include the client that you use to test your method.
 
-## Task 10 (Optional)
+## Task 11 (Optional)
 
 Create a class called `StringUtils`. In it, create a `boolean` method called `isPalindrome` which takes a `String` in as an argument and outputs `true` if the input is a palindrome, and `false` otherwise.
 
