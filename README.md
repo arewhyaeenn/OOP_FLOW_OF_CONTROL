@@ -1,4 +1,4 @@
-# OOP - Flow of Control
+# Object-Oriented Programming - Flow of Control
 In this lab you will learn:
 
 * What boolean expressions are, and how to write and evaluate them.
