@@ -1011,7 +1011,7 @@ public class FreeMilkshake
 
 If the user enters the current password, then the message "Welcome back!" is printed. If they enter the old password, the message "That's the old password..." is printed. If their response is neither the current password nor the old one, the message "Get lost!" is printed.
 
-### <a name="q10"></a>**[EXERCISE 10](#a10)**
+### <a name="a10"></a>**[EXERCISE 10](#q10)**
 
 ```java
 import java.util.Scanner;
