@@ -150,7 +150,7 @@ class MyClass
 	{
 		Scanner scan = new Scanner( System.in );
 		
-		System.out.println("Enter an integer : ")
+		System.out.println("Enter an integer : ");
 		long userInput = scan.nextLong();
 		
 		if (userInput > 10)
@@ -981,7 +981,7 @@ class MyClass
 
 If the two printed `String` values are switched (so the printed messages simply lie to the user) the program otherwise functions the same. These values will be printed, even if they are completely inaccurate or nonsensical. The program does whatever we instruct it to, even when the instructions are stupid.
 
-### <a name="q6"></a>**[EXERCISE 6](#a6)**
+### <a name="a6"></a>**[EXERCISE 6](#q6)**
 
 ```java
 import java.util.Scanner;
