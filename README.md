@@ -1222,7 +1222,7 @@ Then, write a second version of the program which uses a `switch` instead of `if
 
 ### Part 1
 
-Write a program much like that written in [Exercise 14](#q1), but which mirrors the printed shape to form a "bottom half". 
+Write a program much like that written in [Exercise 14](#q14), but which mirrors the printed shape to form a "bottom half". 
 
 #### Part 1 Sample Run
 
