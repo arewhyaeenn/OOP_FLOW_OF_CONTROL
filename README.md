@@ -1197,7 +1197,7 @@ Rewrite the [`DoorGuard`](#doorguard) class to run in a loop. It should prompt t
 	* returns the valid month name entered by the user (as a `String`)
 * Add to the [`DateUtils`](#dateUtils) class. In it, create a `static` method called `monthToInt` which:
 	* requires a String argument (the name of a month)
-		* returns an `int` (1 for January, 2 for February, etc, 0 for invalid)
+	* returns an `int` (1 for January, 2 for February, etc, 0 for invalid)
 * Create a client class to test both `getMonthName` and `monthToInt` by using the output from `getMonthName` as the input for `monthToInt` and printing the resulting `int`
 
 `switch`s also works with the accepted primitives' respective wrapper classes `Byte`, `Short`, `Integer` and `Character`, as well as with enumerated types (`enum`s) which we will discuss in a future lab.
