@@ -1204,7 +1204,7 @@ Rewrite the [`DoorGuard`](#doorguard) class to run in a loop. It should prompt t
 
 ## Task 3
 
-Write a program which asks the user for grade, in integer form, from 0 to 100.
+Write a program which asks the user for a grade, in integer form, from 0 to 100.
 
 If the user's response is negative or greater than 100, insult them.
 
