@@ -460,7 +460,7 @@ Generally, when the loop body consists of a single statement, programmers will s
 
 <a name="q11"></a>**EXERCISE 11** Create a simple program with the the while loop above in its main method in order to step through it with the debugger and observe the behavior of the `while` loop.
 
-<a name="q12"></a>**[EXERCISE 12](#a12)** Determine what value `i` has in the snippet above after the loop ceases interation.
+<a name="q12"></a>**[EXERCISE 12](#a12)** Determine what value `i` has in the snippet above after the loop ceases iteration.
 
 <a name="q13"></a>**EXERCISE 13** Consider `while` loop in the snippet below:
 
