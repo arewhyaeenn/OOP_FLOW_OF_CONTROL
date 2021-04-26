@@ -22,14 +22,14 @@ The simplest boolean expressions are the `boolean` literal values themselves, `t
 
 Java includes **relational operators** which return `true` or `false` depending on the values of their operands:
 
-**OPERATOR** | **SAMPLE EXPRESSION** | **VALUE**
-:----------: | :-------------------: | :-------:
-`<`          | `x < y`               | `true` if `x` is less than `y`; `false` otherwise
-`<=`         | `x <= y`              | `true` if `x` is less than or equal to `y`; `false` otherwise
-`==`         | `x == y`              | `true` if `x` equals `y`; `false` otherwise
-`!=`         | `x != y`              | `true` if `x` does not equal `y`; `false` if `x` does equal `y`
-`>=`         | `x >= y`              | `true` if `x` is greater than or equal to `y`; `false` otherwise
-`>`          | `x > y`               | `true` if `x` is greater than `y`; `false` otherwise
+**OPERATOR** | **Math**  | **SAMPLE EXPRESSION** | **VALUE**
+:----------: |:---------:| :-------------------: | :-------:
+`<`          |<          | `x < y`               | `true` if `x` is less than `y`; `false` otherwise
+`<=`         |≤          | `x <= y`              | `true` if `x` is less than or equal to `y`; `false` otherwise
+`==`         |=          | `x == y`              | `true` if `x` equals `y`; `false` otherwise
+`!=`         |≠          | `x != y`              | `true` if `x` does not equal `y`; `false` if `x` does equal `y`
+`>=`         |≤          | `x >= y`              | `true` if `x` is greater than or equal to `y`; `false` otherwise
+`>`          |>          | `x > y`               | `true` if `x` is greater than `y`; `false` otherwise
 
 Since relational operators evaluate to boolean values, they can be used to form boolean expressions.
 
